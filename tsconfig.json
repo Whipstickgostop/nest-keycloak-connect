@@ -13,6 +13,6 @@
     "noLib": false,
     "esModuleInterop": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "dist"],
   "exclude": ["node_modules"]
 }
