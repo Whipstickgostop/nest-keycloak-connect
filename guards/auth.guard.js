@@ -91,7 +91,8 @@ let AuthGuard = class AuthGuard {
                 request.user = util_1.parseToken(jwt);
                 // Attach raw access token JWT extracted from bearer/cookie
                 request.accessTokenJWT = jwt;
-                this.logger.verbose(`Authenticated User: ${JSON.stringify(request.user)}`);
+                this.logger.debug(`Authenticated User: ${JSON.stringify(request.user)}`);
+                this.logger.verbose(`Authenticated User: ${request.user.preferred_username} | ${request.user.sub}`);
                 return true;
             }
             this.throwUnauthorized(type);
@@ -127,7 +128,7 @@ let AuthGuard = class AuthGuard {
                 return false;
             }
             const token = grant.access_token;
-            this.logger.verbose(`Using token validation method: ${tokenValidation.toUpperCase()}`);
+            this.logger.debug(`Using token validation method: ${tokenValidation.toUpperCase()}`);
             try {
                 let result;
                 switch (tokenValidation) {
