@@ -84,9 +84,9 @@ export class AuthGuard implements CanActivate {
       // Attach raw access token JWT extracted from bearer/cookie
       request.accessTokenJWT = jwt;
 
-      this.logger.verbose(
-        `Authenticated User: ${JSON.stringify(request.user)}`,
-      );
+      this.logger.debug(`Authenticated User: ${JSON.stringify(request.user)}`);
+      this.logger.verbose(`Authenticated User: ${request.user.preferred_username} | ${request.user.sub}`);
+
       return true;
     }
 
@@ -125,7 +125,7 @@ export class AuthGuard implements CanActivate {
 
     const token = grant.access_token;
 
-    this.logger.verbose(
+    this.logger.debug(
       `Using token validation method: ${tokenValidation.toUpperCase()}`,
     );
 
