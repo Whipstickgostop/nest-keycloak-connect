@@ -74,7 +74,7 @@ export class AuthGuard implements CanActivate {
       this.throwUnauthorized(type);
     }
 
-    this.logger.verbose(`User JWT: ${jwt}`);
+    // this.logger.verbose(`User JWT: ${jwt}`);
 
     const isValidToken = await this.validateToken(jwt);
 

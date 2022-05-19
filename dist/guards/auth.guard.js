@@ -84,7 +84,7 @@ let AuthGuard = class AuthGuard {
                 this.logger.verbose('Empty JWT, unauthorized');
                 this.throwUnauthorized(type);
             }
-            this.logger.verbose(`User JWT: ${jwt}`);
+            // this.logger.verbose(`User JWT: ${jwt}`);
             const isValidToken = yield this.validateToken(jwt);
             if (isValidToken) {
                 // Attach user info object

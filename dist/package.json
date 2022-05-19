@@ -9,6 +9,7 @@
     "clean": "rimraf dist",
     "build": "tsc",
     "build:copy": "cpr README.md dist/README.md && cpr LICENSE dist/LICENSE && cpr package.json dist/package.json",
+    "build:git": "yarn clean && yarn build && yarn build:copy && git subtree push --prefix dist origin ws-build",
     "release": "release-it",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint ./src --ext .ts"
@@ -27,7 +28,7 @@
     "@nestjs/common": "^6.0.0 || ^7.0.0 || ^8.0.0",
     "@nestjs/core": "^6.0.0 || ^7.0.0 || ^8.0.0",
     "@nestjs/graphql": "^6.0.0 || ^7.0.0 || ^8.0.0",
-    "keycloak-connect": ">= 10.0.0 < 16.0.0"
+    "keycloak-connect": ">= 10.0.0 <= 18.0.0"
   },
   "devDependencies": {
     "@nestjs/common": "^8.0.0",
